@@ -794,3 +794,127 @@ if (quizTopButton) {
 
     updateProgress();
 })();
+
+/* ===== Top Navigation: Lessons Button ===== */
+const lessonsTopButton = document.getElementById("lessons-top-button");
+const lessonsSection = document.getElementById("python-lessons");
+
+if (lessonsTopButton && lessonsSection) {
+    lessonsTopButton.addEventListener("click", () => {
+        // If a lesson is open, return to the lessons list first.
+        const reader = document.getElementById("lesson-reader");
+
+        if (reader && !reader.hidden) {
+            reader.hidden = true;
+            lessonsSection.hidden = false;
+        }
+
+        lessonsSection.scrollIntoView({ behavior: "smooth" });
+    });
+}
+
+/* ===== Interactive Python Learning Roadmap ===== */
+(() => {
+    const roadmapCards = document.querySelectorAll("[data-roadmap-stage]");
+    const lessonCards = document.querySelectorAll(".lesson-card");
+
+    const stageLessons = {
+        1: 0,  // Introduction to Python
+        2: 4,  // If-Else Conditions
+        3: 6   // Functions
+    };
+
+    roadmapCards.forEach((card) => {
+        card.style.cursor = "pointer";
+        card.setAttribute("tabindex", "0");
+        card.setAttribute("role", "button");
+
+        function openStage() {
+            const stage = card.dataset.roadmapStage;
+            const lessonIndex = stageLessons[stage];
+            const targetLesson = document.querySelector(
+                `.lesson-card[data-lesson-index="${lessonIndex}"]`
+            );
+
+            if (targetLesson) {
+                targetLesson.click();
+            }
+        }
+
+        card.addEventListener("click", openStage);
+
+        card.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openStage();
+            }
+        });
+    });
+})();
+
+/* ===== Accessibility: Keyboard Lesson Navigation ===== */
+document.addEventListener("keydown", (event) => {
+    const reader = document.getElementById("lesson-reader");
+
+    if (!reader || reader.hidden) {
+        return;
+    }
+
+    // Avoid interfering with typing in form controls.
+    if (
+        event.target.matches("input, textarea, select") ||
+        event.target.isContentEditable
+    ) {
+        return;
+    }
+
+    if (event.altKey && event.key === "ArrowRight") {
+        event.preventDefault();
+        document.getElementById("next-lesson")?.click();
+    }
+
+    if (event.altKey && event.key === "ArrowLeft") {
+        event.preventDefault();
+        document.getElementById("previous-lesson")?.click();
+    }
+});
+
+/* ===== Python Lesson Search Functionality ===== */
+(() => {
+    const searchInput = document.getElementById("lesson-search-input");
+    const clearButton = document.getElementById("clear-lesson-search");
+    const emptyMessage = document.getElementById("lesson-search-empty");
+    const lessonCards = document.querySelectorAll(
+        "#python-lessons .lesson-card"
+    );
+
+    if (!searchInput || !clearButton || !emptyMessage || !lessonCards.length) {
+        return;
+    }
+
+    function filterLessons() {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        let visibleCount = 0;
+
+        lessonCards.forEach((card) => {
+            const lessonText = card.textContent.toLowerCase();
+            const matches = lessonText.includes(searchTerm);
+
+            card.style.display = matches ? "" : "none";
+
+            if (matches) {
+                visibleCount++;
+            }
+        });
+
+        emptyMessage.hidden = visibleCount > 0;
+    }
+
+    searchInput.addEventListener("input", filterLessons);
+
+    clearButton.addEventListener("click", () => {
+        searchInput.value = "";
+        filterLessons();
+        searchInput.focus();
+    });
+})();
