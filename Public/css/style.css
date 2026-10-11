@@ -696,3 +696,63 @@ footer {
         padding: 17px 0;
     }
 }
+
+/* Python Learning Posters */
+#python-lessons {
+    padding: 30px 20px;
+    margin: 20px auto;
+    max-width: 1100px;
+}
+
+#python-lessons h2 {
+    text-align: center;
+    color: #a78bfa;
+    font-size: 28px;
+}
+
+.lessons-subtitle {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.lesson-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.lesson-card {
+    background: #211d38;
+    color: #f5f3ff;
+    border: 1px solid #6553a5;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.lesson-card h3 {
+    color: #c4b5fd;
+    margin-top: 0;
+}
+
+.lesson-card pre {
+    background: #12101f;
+    padding: 14px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.lesson-card code {
+    color: #86efac;
+    font-size: 14px;
+}
+
+.lesson-card p {
+    line-height: 1.6;
+}
+
+@media (max-width: 650px) {
+    .lesson-grid {
+        grid-template-columns: 1fr;
+    }
+}
