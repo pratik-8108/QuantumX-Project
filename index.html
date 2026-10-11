@@ -1,0 +1,489 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0a14">
+    <title>CodeQuest AI | Python Learning Lab</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/app.js" defer></script>
+</head>
+
+<body>
+    <header class="topbar">
+        <a class="brand" href="#" aria-label="CodeQuest AI home">
+            <span class="brand-icon">&lt;/&gt;</span>
+            <span>CodeQuest <span class="brand-accent">AI</span></span>
+        </a>
+
+        <div class="topbar-right">
+            <span class="status-dot"></span>
+            <span class="status-text">Python learning lab</span>
+        </div>
+        
+<button id="progress-top-button" type="button" class="progress-top-button">
+    📊 Progress
+</button>
+
+<button id="quiz-top-button" type="button" class="progress-top-button">
+    🧠 Quiz
+</button>
+
+
+<button id="lessons-top-button" type="button">
+    <span class="nav-button-icon" aria-hidden="true">📚</span>
+    <span>Lessons</span>
+</button>
+
+
+
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="eyebrow">
+                <span class="sparkle">✦</span>
+                YOUR PERSONAL CODING COMPANION
+            </div>
+
+            <h1>Learn Python.<br><span>One line at a time.</span></h1>
+
+            <p class="hero-description">
+                Write code, explore mistakes, and understand Python with
+                your friendly coding mentor.
+            </p>
+
+            <div class="hero-tags">
+                <span>🐍 Python only</span>
+                <span>✦ Beginner friendly</span>
+                <span>⌘ No API key needed</span>
+            </div>
+        </section>
+
+        <section class="workspace">
+            <div class="editor-panel panel">
+                <div class="panel-header">
+                    <div class="panel-heading">
+                        <span class="window-dot purple"></span>
+                        <span class="panel-title">Code editor</span>
+                    </div>
+
+                    <span class="file-badge">
+                        <span class="python-icon">Py</span>
+                        main.py
+                    </span>
+                </div>
+
+                <div class="editor-content">
+                    <label for="code" class="field-label">
+                        YOUR PYTHON CODE
+                    </label>
+
+                    <textarea
+                        id="code"
+                        spellcheck="false"
+                        autocapitalize="off"
+                        autocomplete="off"
+                        aria-label="Python code editor"
+                    >name = "Coder"
+print("Hello,", name)
+
+for i in range(1, 4):
+    print("Practice", i)</textarea>
+
+                    <div class="editor-footer">
+                        <span><span class="live-dot"></span> Python mode</span>
+                        <span id="line-count">6 lines</span>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" data-action="debug">
+                            <span>⌕</span> Debug code
+                        </button>
+
+                        <button class="btn btn-secondary" data-action="explain">
+                            <span>✧</span> Explain
+                        </button>
+
+                        <button class="btn btn-secondary" data-action="hint">
+                            <span>♧</span> Give me a hint
+                        </button>
+                    </div>
+
+                    <div class="examples">
+                        <span class="examples-label">TRY AN EXAMPLE</span>
+                        <button class="example-chip" data-example="hello">Hello world</button>
+                        <button class="example-chip" data-example="loop">Loops</button>
+                        <button class="example-chip" data-example="function">Functions</button>
+                        <button class="example-chip" data-example="bug">Find a bug</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="mentor-panel panel">
+                <div class="panel-header">
+                    <div class="panel-heading">
+                        <span class="window-dot green"></span>
+                        <span class="panel-title">Your AI mentor</span>
+                    </div>
+                    <span class="local-badge">LOCAL MODE</span>
+                </div>
+
+                <div id="response" class="response-content" aria-live="polite">
+                    <div class="mentor-avatar">✦</div>
+                    <p class="response-kicker">READY WHEN YOU ARE</p>
+                    <h2>Let's figure it out together.</h2>
+                    <p class="response-description">
+                        Write some Python code, then choose Debug, Explain,
+                        or Hint. I'll help you understand what to look for.
+                    </p>
+
+                    <div class="welcome-tip">
+                        <span class="tip-icon">💡</span>
+                        <div>
+                            <strong>Quick tip</strong>
+                            <p>Start small. Even a single line of code is progress.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mentor-footer">
+                    <span class="footer-sparkle">✦</span>
+                    Built for curious minds
+                </div>
+            </aside>
+        </section>
+
+        <section class="learning-section">
+            <div class="section-heading">
+                <div>
+                    <p class="section-eyebrow">YOUR LEARNING PATH</p>
+                    <h2>Explore Python basics</h2>
+                </div>
+                <span class="section-note">Learn at your own pace</span>
+            </div>
+
+            <div class="topic-grid">
+                <button class="topic-card" data-topic="variables">
+                    <span class="topic-icon icon-purple">Aa</span>
+                    <span class="topic-name">Variables</span>
+                    <span class="topic-description">Store and use data</span>
+                    <span class="topic-arrow">↗</span>
+                </button>
+
+                <button class="topic-card" data-topic="conditions">
+                    <span class="topic-icon icon-orange">?</span>
+                    <span class="topic-name">Conditions</span>
+                    <span class="topic-description">Make decisions</span>
+                    <span class="topic-arrow">↗</span>
+                </button>
+
+                <button class="topic-card" data-topic="loops">
+                    <span class="topic-icon icon-green">↻</span>
+                    <span class="topic-name">Loops</span>
+                    <span class="topic-description">Repeat instructions</span>
+                    <span class="topic-arrow">↗</span>
+                </button>
+
+                <button class="topic-card" data-topic="functions">
+                    <span class="topic-icon icon-blue">ƒ</span>
+                    <span class="topic-name">Functions</span>
+                    <span class="topic-description">Reuse your code</span>
+                    <span class="topic-arrow">↗</span>
+                </button>
+            </div>
+        </section>
+
+        <footer>
+            <span class="footer-brand">CodeQuest <span>AI</span></span>
+            <span>A little code. A lot of progress.</span>
+        </footer>
+    </main>
+    ```html
+<!-- Python Learning Posters -->
+<!-- Python Lessons Section -->
+<section id="python-lessons" class="learning-section">
+    <div class="section-heading">
+        <div>
+            <p class="section-eyebrow">LEARN PYTHON</p>
+            <h2>🐍 Python Lessons</h2>
+            <p>Choose a lesson to start learning step by step.</p>
+        </div>
+    </div>
+    
+<!-- ===== Lesson Completion Progress ===== -->
+<div class="lesson-progress">
+    <div class="lesson-progress-info">
+        <span>Course Progress</span>
+        <span id="lesson-progress-text">0 of 12 lessons completed</span>
+    </div>
+
+    <div
+        class="lesson-progress-track"
+        role="progressbar"
+        aria-label="Python course completion"
+        aria-valuemin="0"
+        aria-valuemax="12"
+        aria-valuenow="0"
+        id="lesson-progress-bar"
+    >
+        <div id="lesson-progress-fill"></div>
+    </div>
+</div>
+
+
+<!-- ===== Search Python Lessons ===== -->
+<div class="lesson-search">
+    <input
+        type="search"
+        id="lesson-search-input"
+        placeholder="Search lessons... e.g. loops, functions"
+        aria-label="Search Python lessons"
+    >
+    <button id="clear-lesson-search" type="button">
+        Clear
+    </button>
+</div>
+<p id="lesson-search-empty" hidden>
+    No lessons found. Try another keyword.
+</p>
+
+    <div class="lessons-grid">
+        <button class="lesson-card" data-lesson-index="0" type="button">
+            <span>📘 Lesson 1</span>
+            <h3>Introduction to Python</h3>
+            <p>Learn what Python is and write your first program.</p>
+        </button>
+
+        <button class="lesson-card" data-lesson-index="1" type="button">
+            <span>📦 Lesson 2</span>
+            <h3>Variables</h3>
+            <p>Learn how to store and use information.</p>
+        </button>
+
+        <button class="lesson-card" data-lesson-index="2" type="button">
+            <span>🔢 Lesson 3</span>
+            <h3>Data Types</h3>
+            <p>Understand strings, integers, floats and booleans.</p>
+        </button>
+
+        <button class="lesson-card" data-lesson-index="3" type="button">
+            <span>⌨️ Lesson 4</span>
+            <h3>Input and Output</h3>
+            <p>Use input() and print() in Python programs.</p>
+        </button>
+
+        <button class="lesson-card" data-lesson-index="4" type="button">
+            <span>🔀 Lesson 5</span>
+            <h3>If-Else Conditions</h3>
+            <p>Make decisions using conditional statements.</p>
+        </button>
+
+        <button class="lesson-card" data-lesson-index="5" type="button">
+            <span>🔁 Lesson 6</span>
+            <h3>Loops</h3>
+            <p>Repeat actions using for and while loops.</p>
+        </button>
+
+        <button class="lesson-card" data-lesson-index="6" type="button">
+            <span>⚙️ Lesson 7</span>
+            <h3>Functions</h3>
+            <p>Write reusable blocks of code.</p>
+        </button>
+
+        <button class="lesson-card" data-lesson-index="7" type="button">
+            <span>📝 Lesson 8</span>
+            <h3>Lists</h3>
+            <p>Store multiple items in a single collection.</p>
+        </button>
+
+        <button class="lesson-card" data-lesson-index="8" type="button">
+            <span>➕ Lesson 9</span>
+            <h3>Python Operators</h3>
+            <p>Work with arithmetic, comparison and logical operators.</p>
+        </button>
+
+        <button class="lesson-card" data-lesson-index="9" type="button">
+            <span>🔤 Lesson 10</span>
+            <h3>Python Strings</h3>
+            <p>Work with text and common string methods.</p>
+        </button>
+
+        <button class="lesson-card" data-lesson-index="10" type="button">
+            <span>🗂️ Lesson 11</span>
+            <h3>Python Dictionaries</h3>
+            <p>Store information using key-value pairs.</p>
+        </button>
+
+        <button class="lesson-card" data-lesson-index="11" type="button">
+            <span>🛠️ Lesson 12</span>
+            <h3>Error Handling</h3>
+            <p>Handle errors using try and except.</p>
+        </button>
+    </div>
+</section>
+<!-- Book-Style Lesson Reader -->
+<section id="lesson-reader" class="learning-section" hidden>
+    <button id="back-to-lessons" type="button">
+        ← Back to Lessons
+    </button>
+
+    <p id="reader-page-number">Lesson 1 of 12</p>
+
+    <h1 id="reader-title">Introduction to Python</h1>
+
+    <div class="lesson-content">
+        <h2>Explanation</h2>
+        <p id="reader-explanation">
+            Learn the basics of Python programming.
+        </p>
+
+        <h2>Code Example</h2>
+        <pre><code id="reader-code"></code></pre>
+
+        <h2>Expected Output</h2>
+        <pre id="reader-output"></pre>
+
+        <div class="lesson-tip">
+            <strong>💡 Remember:</strong>
+            <p id="reader-tip"></p>
+        </div>
+    </div>
+
+    <button id="complete-lesson" type="button">
+        Mark as Completed ✓
+    </button>
+
+    <p id="reader-completion-message"></p>
+
+    <div class="lesson-navigation">
+        <button id="previous-lesson" type="button">
+            ← Previous
+        </button>
+
+        <button id="next-lesson" type="button">
+            Next →
+        </button>
+    </div>
+</section>
+
+<!-- ===== Python Learning Roadmap ===== -->
+<section id="python-roadmap" class="learning-section">
+    <div class="section-heading">
+        <span class="section-tag">YOUR LEARNING PATH</span>
+        <h2>Python Learning Roadmap</h2>
+        <p>Follow a clear path from Python basics to intermediate programming.</p>
+    </div>
+
+    <div class="roadmap-container">
+
+        <article class="roadmap-card">
+            <article class="roadmap-card" data-roadmap-stage="1"></article>
+            <div class="roadmap-number">01</div>
+            <span class="roadmap-level">BEGINNER</span>
+            <h3>Python Fundamentals</h3>
+            <p>Build a strong foundation in Python programming.</p>
+            <ul>
+                <li>Introduction to Python</li>
+                <li>Variables and data types</li>
+                <li>Input and output</li>
+                <li>Python operators</li>
+            </ul>
+            <span class="roadmap-status">Start Here</span>
+        </article>
+
+        <article class="roadmap-card">
+            <article class="roadmap-card" data-roadmap-stage="2"></article>
+            <div class="roadmap-number">02</div>
+            <span class="roadmap-level">FOUNDATION</span>
+            <h3>Control Flow and Collections</h3>
+            <p>Learn how to control program behavior and organize data.</p>
+            <ul>
+                <li>If-else conditions</li>
+                <li>Loops</li>
+                <li>Lists and dictionaries</li>
+                <li>Python strings</li>
+            </ul>
+            <span class="roadmap-status">Level 2</span>
+        </article>
+
+        <article class="roadmap-card">
+            <article class="roadmap-card" data-roadmap-stage="3"></article>
+            <div class="roadmap-number">03</div>
+            <span class="roadmap-level">INTERMEDIATE</span>
+            <h3>Writing Better Programs</h3>
+            <p>Organize code and learn to handle common errors.</p>
+            <ul>
+                <li>Functions</li>
+                <li>Error handling</li>
+                <li>Practice problems</li>
+                <li>Build small projects</li>
+            </ul>
+            <span class="roadmap-status">Level 3</span>
+        </article>
+
+    </div>
+</section>
+
+
+<section id="python-quiz">
+    <h2>🐍 Python Knowledge Quiz</h2>
+    
+<div id="quiz-difficulty">
+    <p><strong>Choose your difficulty:</strong></p>
+    <button type="button" data-quiz-level="easy">Easy</button>
+    <button type="button" data-quiz-level="medium">Medium</button>
+    <button type="button" data-quiz-level="hard">Hard</button>
+</div>
+
+    <p>Test your Python skills!</p>
+
+    <div class="quiz-card">
+        <h3 id="quiz-question">Question will appear here</h3>
+        <div id="quiz-options"></div>
+        <p id="quiz-feedback"></p>
+        <button id="next-question">Start Quiz</button>
+        <p id="quiz-score">Score: 0</p>
+    </div>
+</section>
+
+<!-- Progress Tracker -->
+<section id="progress-tracker" class="learning-section">
+    <div class="section-heading">
+        <div>
+            <p class="section-eyebrow">YOUR ACHIEVEMENTS</p>
+            <h2>📊 My Learning Progress</h2>
+        </div>
+        <span class="section-note">Keep learning every day</span>
+    </div>
+
+    <div class="progress-grid">
+        <div class="progress-card panel">
+            <span class="progress-icon">🎯</span>
+            <h3>Quiz Attempts</h3>
+            <p id="progress-attempts">0</p>
+        </div>
+
+        <div class="progress-card panel">
+            <span class="progress-icon">🏆</span>
+            <h3>Quizzes Completed</h3>
+            <p id="progress-completed">0</p>
+        </div>
+
+        <div class="progress-card panel">
+            <span class="progress-icon">⭐</span>
+            <h3>Best Score</h3>
+            <p id="progress-best">0%</p>
+        </div>
+    </div>
+
+    <p id="progress-message">
+        Complete your first quiz to track your progress!
+    </p>
+</section>
+
+
+</body>
+</html>
