@@ -312,3 +312,209 @@ editor.addEventListener("keydown", (event) => {
 
 updateLineCount();
 
+
+const quizQuestionsByLevel = {
+    easy: [
+        {
+            question: "1. Which command displays text in Python?",
+            options: ["show()", "print()", "display()", "write()"],
+            answer: "print()"
+        },
+        {
+            question: "2. Which symbol starts a Python comment?",
+            options: ["//", "<!--", "#", "**"],
+            answer: "#"
+        },
+        {
+            question: "3. What is the result of 2 + 3?",
+            options: ["23", "5", "6", "Error"],
+            answer: "5"
+        },
+        {
+            question: "4. Which value is a Boolean?",
+            options: ['"Hello"', "25", "True", "3.5"],
+            answer: "True"
+        },
+        {
+            question: "5. Which keyword defines a function?",
+            options: ["function", "def", "fun", "define"],
+            answer: "def"
+        }
+    ],
+
+    medium: [
+        {
+            question: "1. What is the output of 10 % 3?",
+            options: ["3", "1", "0", "3.33"],
+            answer: "1"
+        },
+        {
+            question: "2. What does range(3) produce?",
+            options: ["1, 2, 3", "0, 1, 2", "0, 1, 2, 3", "3 only"],
+            answer: "0, 1, 2"
+        },
+        {
+            question: "3. What is len([4, 7, 9, 2])?",
+            options: ["3", "4", "9", "22"],
+            answer: "4"
+        },
+        {
+            question: "4. Which keyword handles an alternative condition?",
+            options: ["elseif", "otherwise", "elif", "then"],
+            answer: "elif"
+        },
+        {
+            question: "5. What is the output of 3 * 2 ** 2?",
+            options: ["36", "12", "18", "24"],
+            answer: "12"
+        }
+    ],
+
+    hard: [
+        {
+            question: "1. What is the output of [x * 2 for x in range(3)]?",
+            options: ["[2, 4, 6]", "[0, 2, 4]", "[0, 1, 2]", "[2, 3, 4]"],
+            answer: "[0, 2, 4]"
+        },
+        {
+            question: "2. What does this code print: print([1, 2, 3][1])?",
+            options: ["1", "2", "3", "Error"],
+            answer: "2"
+        },
+        {
+            question: "3. What is the result of bool([])?",
+            options: ["True", "False", "None", "Error"],
+            answer: "False"
+        },
+        {
+            question: "4. What does a function return if it has no return statement?",
+            options: ["0", "False", "None", "An empty string"],
+            answer: "None"
+        },
+        {
+            question: "5. What is the output of 'Python'[1:4]?",
+            options: ["Pyt", "yth", "tho", "ytho"],
+            answer: "yth"
+        }
+    ]
+};
+
+let currentQuestions = quizQuestionsByLevel.easy;
+let currentLevel = "easy";
+
+
+let quizIndex = 0;
+let quizScore = 0;
+let quizStarted = false;
+
+const questionElement = document.getElementById("quiz-question");
+const optionsElement = document.getElementById("quiz-options");
+const feedbackElement = document.getElementById("quiz-feedback");
+const nextButton = document.getElementById("next-question");
+const scoreElement = document.getElementById("quiz-score");
+
+function showQuizQuestion() {
+    const current = currentQuestions[quizIndex];
+
+
+    questionElement.textContent = current.question;
+    optionsElement.innerHTML = "";
+    feedbackElement.textContent = "";
+    nextButton.disabled = true;
+
+    current.options.forEach(function(option) {
+        const button = document.createElement("button");
+        button.textContent = option;
+
+        button.addEventListener("click", function() {
+            if (nextButton.disabled === false) return;
+
+            if (option === current.answer) {
+                quizScore++;
+                feedbackElement.textContent = "Correct! 🎉";
+            } else {
+                feedbackElement.textContent =
+                    "Not quite! Correct answer: " + current.answer;
+            }
+
+            scoreElement.textContent =
+                "Score: " + quizScore + " / " + (quizIndex + 1);
+
+            nextButton.disabled = false;
+
+            Array.from(optionsElement.children).forEach(function(btn) {
+                btn.disabled = true;
+            });
+        });
+
+        optionsElement.appendChild(button);
+    });
+
+    nextButton.textContent =
+        quizIndex === currentQuestions.length - 1
+            ? "See Results"
+            : "Next Question";
+}
+
+if (nextButton && questionElement && optionsElement &&
+    feedbackElement && scoreElement) {
+
+    nextButton.addEventListener("click", function() {
+        if (!quizStarted) {
+            quizStarted = true;
+            quizIndex = 0;
+            quizScore = 0;
+            scoreElement.textContent = "Score: 0 / 0";
+            showQuizQuestion();
+            return;
+        }
+
+        if (nextButton.disabled) return;
+
+        if (quizIndex < currentQuestions.length - 1) {
+            quizIndex++;
+            showQuizQuestion();
+        } else {
+            questionElement.textContent =
+                "Quiz complete! 🎓 You scored " +
+                quizScore + " out of " + currentQuestions.length + ".";
+
+            optionsElement.innerHTML = "";
+            feedbackElement.textContent =
+                quizScore === currentQuestions.length
+                    ? "Perfect score! Excellent work!"
+                    : "Keep practising — you're improving!";
+
+            scoreElement.textContent =
+                "Final Score: " + quizScore + " / " +
+                currentQuestions.length;
+
+            nextButton.textContent = "Play Again";
+            nextButton.disabled = false;
+            quizStarted = false;
+        }
+    });
+}
+
+
+const difficultyButtons = document.querySelectorAll("[data-quiz-level]");
+
+difficultyButtons.forEach(function(button) {
+    button.addEventListener("click", function() {
+        currentLevel = button.dataset.quizLevel;
+        currentQuestions = quizQuestionsByLevel[currentLevel];
+
+        quizIndex = 0;
+        quizScore = 0;
+        quizStarted = true;
+
+        difficultyButtons.forEach(function(btn) {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        scoreElement.textContent = "Score: 0 / 0";
+        showQuizQuestion();
+    });
+});
