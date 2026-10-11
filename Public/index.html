@@ -31,7 +31,12 @@
     🧠 Quiz
 </button>
 
-<button id="lessons-top-button" type="button">Lessons</button>
+
+<button id="lessons-top-button" type="button">
+    <span class="nav-button-icon" aria-hidden="true">📚</span>
+    <span>Lessons</span>
+</button>
+
 
 
     </header>
@@ -207,6 +212,43 @@ for i in range(1, 4):
             <p>Choose a lesson to start learning step by step.</p>
         </div>
     </div>
+    
+<!-- ===== Lesson Completion Progress ===== -->
+<div class="lesson-progress">
+    <div class="lesson-progress-info">
+        <span>Course Progress</span>
+        <span id="lesson-progress-text">0 of 12 lessons completed</span>
+    </div>
+
+    <div
+        class="lesson-progress-track"
+        role="progressbar"
+        aria-label="Python course completion"
+        aria-valuemin="0"
+        aria-valuemax="12"
+        aria-valuenow="0"
+        id="lesson-progress-bar"
+    >
+        <div id="lesson-progress-fill"></div>
+    </div>
+</div>
+
+
+<!-- ===== Search Python Lessons ===== -->
+<div class="lesson-search">
+    <input
+        type="search"
+        id="lesson-search-input"
+        placeholder="Search lessons... e.g. loops, functions"
+        aria-label="Search Python lessons"
+    >
+    <button id="clear-lesson-search" type="button">
+        Clear
+    </button>
+</div>
+<p id="lesson-search-empty" hidden>
+    No lessons found. Try another keyword.
+</p>
 
     <div class="lessons-grid">
         <button class="lesson-card" data-lesson-index="0" type="button">
@@ -326,6 +368,65 @@ for i in range(1, 4):
         </button>
     </div>
 </section>
+
+<!-- ===== Python Learning Roadmap ===== -->
+<section id="python-roadmap" class="learning-section">
+    <div class="section-heading">
+        <span class="section-tag">YOUR LEARNING PATH</span>
+        <h2>Python Learning Roadmap</h2>
+        <p>Follow a clear path from Python basics to intermediate programming.</p>
+    </div>
+
+    <div class="roadmap-container">
+
+        <article class="roadmap-card">
+            <article class="roadmap-card" data-roadmap-stage="1"></article>
+            <div class="roadmap-number">01</div>
+            <span class="roadmap-level">BEGINNER</span>
+            <h3>Python Fundamentals</h3>
+            <p>Build a strong foundation in Python programming.</p>
+            <ul>
+                <li>Introduction to Python</li>
+                <li>Variables and data types</li>
+                <li>Input and output</li>
+                <li>Python operators</li>
+            </ul>
+            <span class="roadmap-status">Start Here</span>
+        </article>
+
+        <article class="roadmap-card">
+            <article class="roadmap-card" data-roadmap-stage="2"></article>
+            <div class="roadmap-number">02</div>
+            <span class="roadmap-level">FOUNDATION</span>
+            <h3>Control Flow and Collections</h3>
+            <p>Learn how to control program behavior and organize data.</p>
+            <ul>
+                <li>If-else conditions</li>
+                <li>Loops</li>
+                <li>Lists and dictionaries</li>
+                <li>Python strings</li>
+            </ul>
+            <span class="roadmap-status">Level 2</span>
+        </article>
+
+        <article class="roadmap-card">
+            <article class="roadmap-card" data-roadmap-stage="3"></article>
+            <div class="roadmap-number">03</div>
+            <span class="roadmap-level">INTERMEDIATE</span>
+            <h3>Writing Better Programs</h3>
+            <p>Organize code and learn to handle common errors.</p>
+            <ul>
+                <li>Functions</li>
+                <li>Error handling</li>
+                <li>Practice problems</li>
+                <li>Build small projects</li>
+            </ul>
+            <span class="roadmap-status">Level 3</span>
+        </article>
+
+    </div>
+</section>
+
 
 <section id="python-quiz">
     <h2>🐍 Python Knowledge Quiz</h2>
