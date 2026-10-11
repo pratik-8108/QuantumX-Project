@@ -518,3 +518,279 @@ difficultyButtons.forEach(function(button) {
         showQuizQuestion();
     });
 });
+
+const progressTopButton = document.getElementById("progress-top-button");
+
+if (progressTopButton) {
+    progressTopButton.addEventListener("click", function () {
+        document.getElementById("progress-tracker")?.scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+}
+
+const quizTopButton = document.getElementById("quiz-top-button");
+
+if (quizTopButton) {
+    quizTopButton.addEventListener("click", function () {
+        document.getElementById("python-quiz")?.scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+}
+
+/* ===== CodeQuest AI: Interactive Python Lessons ===== */
+
+(() => {
+    const lessons = [
+        {
+            title: "Introduction to Python",
+            explanation: "Python is a beginner-friendly programming language. The print() function displays information on the screen.",
+            code: 'print("Hello, World!")',
+            output: "Hello, World!",
+            tip: "Python uses indentation to organize code blocks."
+        },
+        {
+            title: "Variables",
+            explanation: "Variables store information that you can use later in your program.",
+            code: 'name = "Alex"\nage = 18\nprint(name)\nprint(age)',
+            output: "Alex\n18",
+            tip: "Use meaningful names for your variables."
+        },
+        {
+            title: "Data Types",
+            explanation: "Python has several data types, including strings (str), integers (int), floating-point numbers (float), and booleans (bool).",
+            code: 'name = "Alex"\nage = 18\nheight = 5.8\nis_student = True\nprint(type(age))',
+            output: "<class 'int'>",
+            tip: "Use type() to find the data type of a value."
+        },
+        {
+            title: "Input and Output",
+            explanation: "The input() function accepts user input. The print() function displays information.",
+            code: 'name = input("Enter your name: ")\nprint("Hello", name)',
+            output: "Enter your name: Alex\nHello Alex",
+            tip: "input() returns text, so convert it when you need a number."
+        },
+        {
+            title: "If-Else Conditions",
+            explanation: "Conditional statements let your program make decisions based on whether a condition is true or false.",
+            code: 'age = 18\nif age >= 18:\n    print("Adult")\nelse:\n    print("Minor")',
+            output: "Adult",
+            tip: "Remember the colon and indentation after if and else."
+        },
+        {
+            title: "Loops",
+            explanation: "Loops repeat instructions. A for loop can iterate over a sequence or a range of numbers.",
+            code: 'for i in range(1, 6):\n    print(i)',
+            output: "1\n2\n3\n4\n5",
+            tip: "range(1, 6) includes 1 but excludes 6."
+        },
+        {
+            title: "Functions",
+            explanation: "Functions are reusable blocks of code. Define a function using def and call it by its name.",
+            code: 'def greet():\n    print("Hello!")\n\ngreet()',
+            output: "Hello!",
+            tip: "The indented statements belong to the function."
+        },
+        {
+            title: "Lists",
+            explanation: "Lists store multiple items in a single variable. List indexes start at zero.",
+            code: 'fruits = ["apple", "banana", "mango"]\nprint(fruits[0])\nprint(len(fruits))',
+            output: "apple\n3",
+            tip: "Use append() to add an item to a list."
+        },
+        {
+            title: "Python Operators",
+            explanation: "Operators perform calculations and comparisons. Examples include +, -, *, /, ==, and >.",
+            code: 'a = 10\nb = 3\nprint(a + b)\nprint(a > b)',
+            output: "13\nTrue",
+            tip: "Use == to compare values and = to assign a value."
+        },
+        {
+            title: "Python Strings",
+            explanation: "Strings represent text. You can join strings and use methods such as upper() to change their appearance.",
+            code: 'message = "hello"\nprint(message.upper())\nprint(len(message))',
+            output: "HELLO\n5",
+            tip: "Strings are sequences of characters."
+        },
+        {
+            title: "Python Dictionaries",
+            explanation: "Dictionaries store information as key-value pairs. Access a value using its key.",
+            code: 'student = {"name": "Alex", "age": 18}\nprint(student["name"])',
+            output: "Alex",
+            tip: "Dictionary keys must be unique."
+        },
+        {
+            title: "Error Handling",
+            explanation: "try and except let you handle certain errors without abruptly stopping your program.",
+            code: 'try:\n    number = int("hello")\nexcept ValueError:\n    print("Invalid number")',
+            output: "Invalid number",
+            tip: "Handle the specific errors your program can reasonably encounter."
+        }
+    ];
+
+    const lessonsSection = document.getElementById("python-lessons");
+    const reader = document.getElementById("lesson-reader");
+
+    if (!lessonsSection || !reader) {
+        console.warn("Lesson section or lesson reader was not found.");
+        return;
+    }
+
+    const title = document.getElementById("reader-title");
+    const pageNumber = document.getElementById("reader-page-number");
+    const explanation = document.getElementById("reader-explanation");
+    const code = document.getElementById("reader-code");
+    const output = document.getElementById("reader-output");
+    const tip = document.getElementById("reader-tip");
+    const backButton = document.getElementById("back-to-lessons");
+    const previousButton = document.getElementById("previous-lesson");
+    const nextButton = document.getElementById("next-lesson");
+    const completeButton = document.getElementById("complete-lesson");
+    const completionMessage = document.getElementById("reader-completion-message");
+    const completedCount = document.getElementById("lessons-completed-count");
+
+    let currentLesson = 0;
+    const storageKey = "codequestCompletedLessons";
+
+    function loadCompletedLessons() {
+        try {
+            const saved = JSON.parse(localStorage.getItem(storageKey) || "[]");
+            return new Set(
+                Array.isArray(saved)
+                    ? saved.filter(index =>
+                        Number.isInteger(index) &&
+                        index >= 0 &&
+                        index < lessons.length
+                    )
+                    : []
+            );
+        } catch {
+            return new Set();
+        }
+    }
+
+    const completedLessons = loadCompletedLessons();
+
+    function saveProgress() {
+        try {
+            localStorage.setItem(
+                storageKey,
+                JSON.stringify([...completedLessons])
+            );
+        } catch (error) {
+            console.warn("Could not save lesson progress.", error);
+        }
+    }
+
+    function updateProgress() {
+        if (completedCount) {
+            completedCount.textContent =
+                `${completedLessons.size} / ${lessons.length}`;
+        }
+
+        document.querySelectorAll(".lesson-card[data-lesson-index]")
+            .forEach(card => {
+                const index = Number(card.dataset.lessonIndex);
+                const isCompleted = completedLessons.has(index);
+
+                card.classList.toggle("lesson-completed", isCompleted);
+                card.setAttribute("aria-label",
+                    `${lessons[index]?.title || "Lesson"}${isCompleted ? ", completed" : ""}`
+                );
+
+                const badge = card.querySelector(".lesson-status");
+
+                if (badge) {
+                    badge.textContent = isCompleted ? "✓ Completed" : "";
+                } else if (isCompleted) {
+                    const status = document.createElement("span");
+                    status.className = "lesson-status";
+                    status.textContent = "✓ Completed";
+                    card.appendChild(status);
+                }
+            });
+    }
+
+    function renderLesson() {
+        const lesson = lessons[currentLesson];
+
+        title.textContent = lesson.title;
+        pageNumber.textContent =
+            `Lesson ${currentLesson + 1} of ${lessons.length}`;
+
+        explanation.textContent = lesson.explanation;
+        code.textContent = lesson.code;
+        output.textContent = lesson.output;
+        tip.textContent = lesson.tip;
+
+        previousButton.disabled = currentLesson === 0;
+        nextButton.disabled = currentLesson === lessons.length - 1;
+        nextButton.textContent =
+            currentLesson === lessons.length - 1
+                ? "Last Lesson"
+                : "Next →";
+
+        const isCompleted = completedLessons.has(currentLesson);
+
+        completeButton.textContent = isCompleted
+            ? "✓ Lesson Completed"
+            : "Mark as Completed ✓";
+
+        completeButton.disabled = isCompleted;
+
+        completionMessage.textContent = isCompleted
+            ? "Great work! You have completed this lesson."
+            : "";
+
+        updateProgress();
+    }
+
+    function openLesson(index) {
+        if (index < 0 || index >= lessons.length) return;
+
+        currentLesson = index;
+        lessonsSection.hidden = true;
+        reader.hidden = false;
+
+        renderLesson();
+        
+    }
+
+    function showLessons() {
+        reader.hidden = true;
+        lessonsSection.hidden = false;
+
+        updateProgress();
+        lessonsSection.scrollIntoView({ behavior: "smooth" });
+    }
+
+    lessonsSection.querySelectorAll(".lesson-card[data-lesson-index]")
+        .forEach(card => {
+            card.addEventListener("click", () => {
+                openLesson(Number(card.dataset.lessonIndex));
+            });
+        });
+
+    backButton.addEventListener("click", showLessons);
+
+    previousButton.addEventListener("click", () => {
+        if (currentLesson > 0) {
+            openLesson(currentLesson - 1);
+        }
+    });
+
+    nextButton.addEventListener("click", () => {
+        if (currentLesson < lessons.length - 1) {
+            openLesson(currentLesson + 1);
+        }
+    });
+
+    completeButton.addEventListener("click", () => {
+        completedLessons.add(currentLesson);
+        saveProgress();
+        renderLesson();
+    });
+
+    updateProgress();
+})();
