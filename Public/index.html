@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0a14">
+    <title>CodeQuest AI | Python Learning Lab</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/app.js" defer></script>
+</head>
+
+<body>
+    <header class="topbar">
+        <a class="brand" href="#" aria-label="CodeQuest AI home">
+            <span class="brand-icon">&lt;/&gt;</span>
+            <span>CodeQuest <span class="brand-accent">AI</span></span>
+        </a>
+
+        <div class="topbar-right">
+            <span class="status-dot"></span>
+            <span class="status-text">Python learning lab</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="eyebrow">
+                <span class="sparkle">✦</span>
+                YOUR PERSONAL CODING COMPANION
+            </div>
+
+            <h1>Learn Python.<br><span>One line at a time.</span></h1>
+
+            <p class="hero-description">
+                Write code, explore mistakes, and understand Python with
+                your friendly coding mentor.
+            </p>
+
+            <div class="hero-tags">
+                <span>🐍 Python only</span>
+                <span>✦ Beginner friendly</span>
+                <span>⌘ No API key needed</span>
+            </div>
+        </section>
+
+        <section class="workspace">
+            <div class="editor-panel panel">
+                <div class="panel-header">
+                    <div class="panel-heading">
+                        <span class="window-dot purple"></span>
+                        <span class="panel-title">Code editor</span>
+                    </div>
+
+                    <span class="file-badge">
+                        <span class="python-icon">Py</span>
+                        main.py
+                    </span>
+                </div>
+
+                <div class="editor-content">
+                    <label for="code" class="field-label">
+                        YOUR PYTHON CODE
+                    </label>
+
+                    <textarea
+                        id="code"
+                        spellcheck="false"
+                        autocapitalize="off"
+                        autocomplete="off"
+                        aria-label="Python code editor"
+                    >name = "Coder"
+print("Hello,", name)
+
+for i in range(1, 4):
+    print("Practice", i)</textarea>
+
+                    <div class="editor-footer">
+                        <span><span class="live-dot"></span> Python mode</span>
+                        <span id="line-count">6 lines</span>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" data-action="debug">
+                            <span>⌕</span> Debug code
+                        </button>
+
+                        <button class="btn btn-secondary" data-action="explain">
+                            <span>✧</span> Explain
+                        </button>
+
+                        <button class="btn btn-secondary" data-action="hint">
+                            <span>♧</span> Give me a hint
+                        </button>
+                    </div>
+
+                    <div class="examples">
+                        <span class="examples-label">TRY AN EXAMPLE</span>
+                        <button class="example-chip" data-example="hello">Hello world</button>
+                        <button class="example-chip" data-example="loop">Loops</button>
+                        <button class="example-chip" data-example="function">Functions</button>
+                        <button class="example-chip" data-example="bug">Find a bug</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="mentor-panel panel">
+                <div class="panel-header">
+                    <div class="panel-heading">
+                        <span class="window-dot green"></span>
+                        <span class="panel-title">Your AI mentor</span>
+                    </div>
+                    <span class="local-badge">LOCAL MODE</span>
+                </div>
+
+                <div id="response" class="response-content" aria-live="polite">
+                    <div class="mentor-avatar">✦</div>
+                    <p class="response-kicker">READY WHEN YOU ARE</p>
+                    <h2>Let's figure it out together.</h2>
+                    <p class="response-description">
+                        Write some Python code, then choose Debug, Explain,
+                        or Hint. I'll help you understand what to look for.
+                    </p>
+
+                    <div class="welcome-tip">
+                        <span class="tip-icon">💡</span>
+                        <div>
+                            <strong>Quick tip</strong>
+                            <p>Start small. Even a single line of code is progress.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mentor-footer">
+                    <span class="footer-sparkle">✦</span>
+                    Built for curious minds
+                </div>
+            </aside>
+        </section>
+
+        <section class="learning-section">
+            <div class="section-heading">
+                <div>
+                    <p class="section-eyebrow">YOUR LEARNING PATH</p>
+                    <h2>Explore Python basics</h2>
+                </div>
+                <span class="section-note">Learn at your own pace</span>
+            </div>
+
+            <div class="topic-grid">
+                <button class="topic-card" data-topic="variables">
+                    <span class="topic-icon icon-purple">Aa</span>
+                    <span class="topic-name">Variables</span>
+                    <span class="topic-description">Store and use data</span>
+                    <span class="topic-arrow">↗</span>
+                </button>
+
+                <button class="topic-card" data-topic="conditions">
+                    <span class="topic-icon icon-orange">?</span>
+                    <span class="topic-name">Conditions</span>
+                    <span class="topic-description">Make decisions</span>
+                    <span class="topic-arrow">↗</span>
+                </button>
+
+                <button class="topic-card" data-topic="loops">
+                    <span class="topic-icon icon-green">↻</span>
+                    <span class="topic-name">Loops</span>
+                    <span class="topic-description">Repeat instructions</span>
+                    <span class="topic-arrow">↗</span>
+                </button>
+
+                <button class="topic-card" data-topic="functions">
+                    <span class="topic-icon icon-blue">ƒ</span>
+                    <span class="topic-name">Functions</span>
+                    <span class="topic-description">Reuse your code</span>
+                    <span class="topic-arrow">↗</span>
+                </button>
+            </div>
+        </section>
+
+        <footer>
+            <span class="footer-brand">CodeQuest <span>AI</span></span>
+            <span>A little code. A lot of progress.</span>
+        </footer>
+    </main>
+</body>
+</html>
