@@ -1,0 +1,14 @@
+
+{
+  "name": "codequest-ai",
+  "version": "1.0.0",
+  "description": "A beginner-friendly Python learning website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
