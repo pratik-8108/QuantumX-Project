@@ -22,6 +22,18 @@
             <span class="status-dot"></span>
             <span class="status-text">Python learning lab</span>
         </div>
+        
+<button id="progress-top-button" type="button" class="progress-top-button">
+    📊 Progress
+</button>
+
+<button id="quiz-top-button" type="button" class="progress-top-button">
+    🧠 Quiz
+</button>
+
+<button id="lessons-top-button" type="button">Lessons</button>
+
+
     </header>
 
     <main class="container">
@@ -186,336 +198,133 @@ for i in range(1, 4):
     </main>
     ```html
 <!-- Python Learning Posters -->
-<section id="python-lessons">
-    <h2>🐍 Python Learning Posters</h2>
-    <p class="lessons-subtitle">Learn Python one concept at a time!</p>
+<!-- Python Lessons Section -->
+<section id="python-lessons" class="learning-section">
+    <div class="section-heading">
+        <div>
+            <p class="section-eyebrow">LEARN PYTHON</p>
+            <h2>🐍 Python Lessons</h2>
+            <p>Choose a lesson to start learning step by step.</p>
+        </div>
+    </div>
 
-    <div class="lesson-grid">
+    <div class="lessons-grid">
+        <button class="lesson-card" data-lesson-index="0" type="button">
+            <span>📘 Lesson 1</span>
+            <h3>Introduction to Python</h3>
+            <p>Learn what Python is and write your first program.</p>
+        </button>
 
-        <article class="lesson-card">
-            <h3>1. Introduction to Python</h3>
-            <p>Python is a programming language used to build apps, websites, and more.</p>
-            <pre><code>print("Hello, World!")</code></pre>
-            <p class="lesson-tip">💡 <strong>Remember:</strong> print() displays output.</p>
-        </article>
+        <button class="lesson-card" data-lesson-index="1" type="button">
+            <span>📦 Lesson 2</span>
+            <h3>Variables</h3>
+            <p>Learn how to store and use information.</p>
+        </button>
 
-        <article class="lesson-card">
-            <h3>2. Variables</h3>
-            <p>Variables store information.</p>
-            <pre><code>name = "Alex"
-age = 18
+        <button class="lesson-card" data-lesson-index="2" type="button">
+            <span>🔢 Lesson 3</span>
+            <h3>Data Types</h3>
+            <p>Understand strings, integers, floats and booleans.</p>
+        </button>
 
-print(name)
-print(age)</code></pre>
-            <p class="lesson-tip">💡 Use = to assign a value to a variable.</p>
-        </article>
+        <button class="lesson-card" data-lesson-index="3" type="button">
+            <span>⌨️ Lesson 4</span>
+            <h3>Input and Output</h3>
+            <p>Use input() and print() in Python programs.</p>
+        </button>
 
-        <article class="lesson-card">
-            <h3>3. Data Types</h3>
-            <p>Python supports different kinds of data.</p>
-            <pre><code>name = "Sam"       # String
-age = 20           # Integer
-price = 9.99       # Float
-is_ready = True    # Boolean</code></pre>
-            <p class="lesson-tip">💡 Strings store text; integers store whole numbers.</p>
-        </article>
+        <button class="lesson-card" data-lesson-index="4" type="button">
+            <span>🔀 Lesson 5</span>
+            <h3>If-Else Conditions</h3>
+            <p>Make decisions using conditional statements.</p>
+        </button>
 
-        <article class="lesson-card">
-            <h3>4. Input and Output</h3>
-            <p>Take information from the user and display a response.</p>
-            <pre><code>name = input("Your name: ")
-print("Hello,", name)</code></pre>
-            <p class="lesson-tip">💡 input() receives text from the user.</p>
-        </article>
+        <button class="lesson-card" data-lesson-index="5" type="button">
+            <span>🔁 Lesson 6</span>
+            <h3>Loops</h3>
+            <p>Repeat actions using for and while loops.</p>
+        </button>
 
-        <article class="lesson-card">
-            <h3>5. If-Else Conditions</h3>
-            <p>Make decisions based on conditions.</p>
-            <pre><code>age = 18
+        <button class="lesson-card" data-lesson-index="6" type="button">
+            <span>⚙️ Lesson 7</span>
+            <h3>Functions</h3>
+            <p>Write reusable blocks of code.</p>
+        </button>
 
-if age >= 18:
-    print("Adult")
-else:
-    print("Minor")</code></pre>
-            <p class="lesson-tip">💡 Python uses indentation to group code.</p>
-        </article>
+        <button class="lesson-card" data-lesson-index="7" type="button">
+            <span>📝 Lesson 8</span>
+            <h3>Lists</h3>
+            <p>Store multiple items in a single collection.</p>
+        </button>
 
-        <article class="lesson-card">
-            <h3>6. Loops</h3>
-            <p>Repeat instructions using a loop.</p>
-            <pre><code>for i in range(1, 6):
-    print(i)</code></pre>
-            <p class="lesson-tip">💡 This example prints numbers 1 through 5.</p>
-        </article>
+        <button class="lesson-card" data-lesson-index="8" type="button">
+            <span>➕ Lesson 9</span>
+            <h3>Python Operators</h3>
+            <p>Work with arithmetic, comparison and logical operators.</p>
+        </button>
 
-        <article class="lesson-card">
-            <h3>7. Functions</h3>
-            <p>Functions let you reuse blocks of code.</p>
-            <pre><code>def greet(name):
-    print("Hello,", name)
+        <button class="lesson-card" data-lesson-index="9" type="button">
+            <span>🔤 Lesson 10</span>
+            <h3>Python Strings</h3>
+            <p>Work with text and common string methods.</p>
+        </button>
 
-greet("Alex")</code></pre>
-            <p class="lesson-tip">💡 def is used to define a function.</p>
-        </article>
+        <button class="lesson-card" data-lesson-index="10" type="button">
+            <span>🗂️ Lesson 11</span>
+            <h3>Python Dictionaries</h3>
+            <p>Store information using key-value pairs.</p>
+        </button>
 
-        <article class="lesson-card">
-            <h3>8. Lists</h3>
-            <p>Lists store multiple items in one variable.</p>
-            <pre><code>fruits = ["apple", "mango", "banana"]
-
-print(fruits[0])
-fruits.append("orange")</code></pre>
-            <p class="lesson-tip">💡 List indexing starts at 0.</p>
-        </article>
-
+        <button class="lesson-card" data-lesson-index="11" type="button">
+            <span>🛠️ Lesson 12</span>
+            <h3>Error Handling</h3>
+            <p>Handle errors using try and except.</p>
+        </button>
     </div>
 </section>
-```html
-<!-- Python Learning Posters -->
-<section id="python-lessons">
-    <h2>🐍 Python Learning Posters</h2>
-    <p class="lessons-subtitle">Learn Python one concept at a time!</p>
+<!-- Book-Style Lesson Reader -->
+<section id="lesson-reader" class="learning-section" hidden>
+    <button id="back-to-lessons" type="button">
+        ← Back to Lessons
+    </button>
 
-    <div class="lesson-grid">
+    <p id="reader-page-number">Lesson 1 of 12</p>
 
-        <article class="lesson-card">
-            <h3>1. Introduction to Python</h3>
-            <p>Python is a programming language used to build apps, websites, and more.</p>
-            <pre><code>print("Hello, World!")</code></pre>
-            <p class="lesson-tip">💡 <strong>Remember:</strong> print() displays output.</p>
-        </article>
+    <h1 id="reader-title">Introduction to Python</h1>
 
-        <article class="lesson-card">
-            <h3>2. Variables</h3>
-            <p>Variables store information.</p>
-            <pre><code>name = "Alex"
-age = 18
+    <div class="lesson-content">
+        <h2>Explanation</h2>
+        <p id="reader-explanation">
+            Learn the basics of Python programming.
+        </p>
 
-print(name)
-print(age)</code></pre>
-            <p class="lesson-tip">💡 Use = to assign a value to a variable.</p>
-        </article>
+        <h2>Code Example</h2>
+        <pre><code id="reader-code"></code></pre>
 
-        <article class="lesson-card">
-            <h3>3. Data Types</h3>
-            <p>Python supports different kinds of data.</p>
-            <pre><code>name = "Sam"       # String
-age = 20           # Integer
-price = 9.99       # Float
-is_ready = True    # Boolean</code></pre>
-            <p class="lesson-tip">💡 Strings store text; integers store whole numbers.</p>
-        </article>
+        <h2>Expected Output</h2>
+        <pre id="reader-output"></pre>
 
-        <article class="lesson-card">
-            <h3>4. Input and Output</h3>
-            <p>Take information from the user and display a response.</p>
-            <pre><code>name = input("Your name: ")
-print("Hello,", name)</code></pre>
-            <p class="lesson-tip">💡 input() receives text from the user.</p>
-        </article>
-
-        <article class="lesson-card">
-            <h3>5. If-Else Conditions</h3>
-            <p>Make decisions based on conditions.</p>
-            <pre><code>age = 18
-
-if age >= 18:
-    print("Adult")
-else:
-    print("Minor")</code></pre>
-            <p class="lesson-tip">💡 Python uses indentation to group code.</p>
-        </article>
-
-        <article class="lesson-card">
-            <h3>6. Loops</h3>
-            <p>Repeat instructions using a loop.</p>
-            <pre><code>for i in range(1, 6):
-    print(i)</code></pre>
-            <p class="lesson-tip">💡 This example prints numbers 1 through 5.</p>
-        </article>
-
-        <article class="lesson-card">
-            <h3>7. Functions</h3>
-            <p>Functions let you reuse blocks of code.</p>
-            <pre><code>def greet(name):
-    print("Hello,", name)
-
-greet("Alex")</code></pre>
-            <p class="lesson-tip">💡 def is used to define a function.</p>
-        </article>
-
-        <article class="lesson-card">
-            <h3>8. Lists</h3>
-            <p>Lists store multiple items in one variable.</p>
-            <pre><code>fruits = ["apple", "mango", "banana"]
-
-print(fruits[0])
-fruits.append("orange")</code></pre>
-            <p class="lesson-tip">💡 List indexing starts at 0.</p>
-        </article>
-
+        <div class="lesson-tip">
+            <strong>💡 Remember:</strong>
+            <p id="reader-tip"></p>
+        </div>
     </div>
-</section>
-```html
-<!-- Python Learning Posters -->
-<section id="python-lessons">
-    <h2>🐍 Python Learning Posters</h2>
-    <p class="lessons-subtitle">Learn Python one concept at a time!</p>
 
-    <div class="lesson-grid">
+    <button id="complete-lesson" type="button">
+        Mark as Completed ✓
+    </button>
 
-        <article class="lesson-card">
-            <h3>1. Introduction to Python</h3>
-            <p>Python is a programming language used to build apps, websites, and more.</p>
-            <pre><code>print("Hello, World!")</code></pre>
-            <p class="lesson-tip">💡 <strong>Remember:</strong> print() displays output.</p>
-        </article>
+    <p id="reader-completion-message"></p>
 
-        <article class="lesson-card">
-            <h3>2. Variables</h3>
-            <p>Variables store information.</p>
-            <pre><code>name = "Alex"
-age = 18
+    <div class="lesson-navigation">
+        <button id="previous-lesson" type="button">
+            ← Previous
+        </button>
 
-print(name)
-print(age)</code></pre>
-            <p class="lesson-tip">💡 Use = to assign a value to a variable.</p>
-        </article>
-
-        <article class="lesson-card">
-            <h3>3. Data Types</h3>
-            <p>Python supports different kinds of data.</p>
-            <pre><code>name = "Sam"       # String
-age = 20           # Integer
-price = 9.99       # Float
-is_ready = True    # Boolean</code></pre>
-            <p class="lesson-tip">💡 Strings store text; integers store whole numbers.</p>
-        </article>
-
-        <article class="lesson-card">
-            <h3>4. Input and Output</h3>
-            <p>Take information from the user and display a response.</p>
-            <pre><code>name = input("Your name: ")
-print("Hello,", name)</code></pre>
-            <p class="lesson-tip">💡 input() receives text from the user.</p>
-        </article>
-
-        <article class="lesson-card">
-            <h3>5. If-Else Conditions</h3>
-            <p>Make decisions based on conditions.</p>
-            <pre><code>age = 18
-
-if age >= 18:
-    print("Adult")
-else:
-    print("Minor")</code></pre>
-            <p class="lesson-tip">💡 Python uses indentation to group code.</p>
-        </article>
-
-        <article class="lesson-card">
-            <h3>6. Loops</h3>
-            <p>Repeat instructions using a loop.</p>
-            <pre><code>for i in range(1, 6):
-    print(i)</code></pre>
-            <p class="lesson-tip">💡 This example prints numbers 1 through 5.</p>
-        </article>
-
-        <article class="lesson-card">
-            <h3>7. Functions</h3>
-            <p>Functions let you reuse blocks of code.</p>
-            <pre><code>def greet(name):
-    print("Hello,", name)
-
-greet("Alex")</code></pre>
-            <p class="lesson-tip">💡 def is used to define a function.</p>
-        </article>
-
-        <article class="lesson-card">
-            <h3>8. Lists</h3>
-            <p>Lists store multiple items in one variable.</p>
-            <pre><code>fruits = ["apple", "mango", "banana"]
-
-print(fruits[0])
-fruits.append("orange")</code></pre>
-            <p class="lesson-tip">💡 List indexing starts at 0.</p>
-        </article>
-
+        <button id="next-lesson" type="button">
+            Next →
+        </button>
     </div>
-</section>
-
-<section id="python-lessons">
-  <h2>🐍 Python Learning Posters</h2>
-  <p>Learn Python one concept at a time!</p>
-
-  <div class="lesson-grid">
-    <article class="lesson-card">
-      <h3>1. Introduction to Python</h3>
-      <p>Python is a programming language.</p>
-      <pre><code>print("Hello, World!")</code></pre>
-      <p>Tip: print() displays output.</p>
-    </article>
-
-    <article class="lesson-card">
-      <h3>2. Variables</h3>
-      <p>Variables store information.</p>
-      <pre><code>name = "Alex"
-age = 18
-print(name)
-print(age)</code></pre>
-      <p>Tip: Variables hold values.</p>
-    </article>
-
-    <article class="lesson-card">
-      <h3>3. Data Types</h3>
-      <p>Python has different data types.</p>
-      <pre><code>name = "Sam"
-age = 20
-price = 9.99
-is_ready = True</code></pre>
-      <p>Tip: Text, integers, decimals, and Booleans.</p>
-    </article>
-
-    <article class="lesson-card">
-      <h3>4. Input and Output</h3>
-      <pre><code>name = input("Your name: ")
-print("Hello,", name)</code></pre>
-      <p>Tip: input() gets information from the user.</p>
-    </article>
-
-    <article class="lesson-card">
-      <h3>5. Conditions</h3>
-      <pre><code>age = 18
-if age >= 18:
-    print("Adult")
-else:
-    print("Minor")</code></pre>
-      <p>Tip: Conditions help programs make decisions.</p>
-    </article>
-
-    <article class="lesson-card">
-      <h3>6. Loops</h3>
-      <pre><code>for i in range(1, 6):
-    print(i)</code></pre>
-      <p>Tip: Loops repeat instructions.</p>
-    </article>
-
-    <article class="lesson-card">
-      <h3>7. Functions</h3>
-      <pre><code>def greet(name):
-    print("Hello,", name)
-
-greet("Alex")</code></pre>
-      <p>Tip: Functions reuse code.</p>
-    </article>
-
-    <article class="lesson-card">
-      <h3>8. Lists</h3>
-      <pre><code>fruits = ["apple", "mango", "banana"]
-print(fruits[0])
-fruits.append("orange")</code></pre>
-      <p>Tip: Lists store multiple items.</p>
-    </article>
-  </div>
 </section>
 
 <section id="python-quiz">
@@ -538,6 +347,42 @@ fruits.append("orange")</code></pre>
         <p id="quiz-score">Score: 0</p>
     </div>
 </section>
+
+<!-- Progress Tracker -->
+<section id="progress-tracker" class="learning-section">
+    <div class="section-heading">
+        <div>
+            <p class="section-eyebrow">YOUR ACHIEVEMENTS</p>
+            <h2>📊 My Learning Progress</h2>
+        </div>
+        <span class="section-note">Keep learning every day</span>
+    </div>
+
+    <div class="progress-grid">
+        <div class="progress-card panel">
+            <span class="progress-icon">🎯</span>
+            <h3>Quiz Attempts</h3>
+            <p id="progress-attempts">0</p>
+        </div>
+
+        <div class="progress-card panel">
+            <span class="progress-icon">🏆</span>
+            <h3>Quizzes Completed</h3>
+            <p id="progress-completed">0</p>
+        </div>
+
+        <div class="progress-card panel">
+            <span class="progress-icon">⭐</span>
+            <h3>Best Score</h3>
+            <p id="progress-best">0%</p>
+        </div>
+    </div>
+
+    <p id="progress-message">
+        Complete your first quiz to track your progress!
+    </p>
+</section>
+
 
 </body>
 </html>
